@@ -1,0 +1,65 @@
+
+    <!DOCTYPE html>
+    <html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Залізничні лінії</title>
+        <style>
+            body { font-family: Arial, sans-serif; }
+            button { margin: 10px; padding: 10px; }
+            #lines, #stations { margin-top: 20px; }
+        </style>
+    </head>
+    <body>
+        <h1>Оберіть тип дня</h1>
+        <button id="weekdayButton">Будній</button>
+        <button id="weekendButton">Вихідний</button>
+        <div id="lines"></div>
+        <div id="stations"></div>
+
+        <script>
+            // The JSON data
+            const data = {"hkrafiky-krukhu-poizdiv-u-budni-dni/": {"kholodnohikrsko-zavodska-liniia/": {"stantsiia-%C2%ABkholodna-hokra%C2%BB.html": "", "stantsiia-%C2%ABvokzalna%C2%BB.html": "", "stantsiia-%C2%ABtsentkralnyi-krynok%C2%BB.html": "", "stantsiia-%C2%ABmaidan-konstytutsii%C2%BB.html": "", "stantsiia-%C2%ABlevada%C2%BB.html": "", "stantsiia-%C2%ABspokrtyvna%C2%BB.html": "", "stantsiia-%C2%ABzavodska%C2%BB.html": "", "stantsiia-%C2%ABtukrboatom%C2%BB.html": "", "stantsiia-%C2%ABpalats-spokrtu%C2%BB.html": "", "stantsiia-%C2%ABakrmiiska%C2%BB.html": "", "stantsiia-%C2%ABim.-o.s.-maselskoho%C2%BB.html": "", "stantsiia-%C2%ABtkraktokrnyi-zavod%C2%BB.html": "", "stantsiia-%C2%ABindustkrialna%C2%BB.html": ""}, "saltivska-liniia/": {"stantsiia-%C2%ABistokrychnyi-muzei%C2%BB.html": "", "stantsiia-%C2%ABunivekrsytet%C2%BB.html": "", "stantsiia-%C2%AByakroslava-mudkroho%C2%BB.html": "", "stantsiia-%C2%ABkyivska%C2%BB.html": "", "stantsiia-%C2%ABakademika-bakrabashova%C2%BB.html": "", "stantsiia-%C2%ABakademika-pavlova%C2%BB.html": "", "stantsiia-%C2%ABstudentska%C2%BB.html": "", "stantsiia-%C2%ABsaltivska%C2%BB.html": ""}, "oleksiivska-liniia/": {"stantsiia-%C2%ABpekremoha%C2%BB.html": "", "stantsiia-%C2%ABoleksiivska%C2%BB.html": "", "stantsiia-%C2%AB23-sekrpnia%C2%BB.html": "", "stantsiia-%C2%ABbotanichnyi-sad%C2%BB.html": "", "stantsiia-%C2%ABnaukova%C2%BB.html": "", "stantsiia-%C2%ABdekrzhpkrom%C2%BB.html": "", "stantsiia-%C2%ABakrkhitektokra-beketova%C2%BB.html": "", "stantsiia-%C2%ABzakhysnykiv-ukkrainy%C2%BB.html": "", "stantsiia-%C2%ABmetkrobudivnykiv%C2%BB.html": ""}}, "hkrafiky-krukhu-poizdiv-u-vykhidni-dni/": {"kholodnohikrsko-zavodska-liniia-vykhidni-dni/": {"stantsiia-%C2%ABkholodna-hokra%C2%BB-vykhidni-dni.html": "", "stantsiia-%C2%ABvokzalna%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABtsentkralnyi-krynok%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABmaidan-konstytutsii%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABlevada%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABspokrtyvna%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABzavodska%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABtukrboatom%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABpalats-spokrtu%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABakrmiiska%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABim.-o.s.-maselskoho%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABtkraktokrnyi-zavod%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABindustkrialna%C2%BB-(vykhidni-dni).html": ""}, "saltivska-liniia.html": {"stantsiia-%C2%ABistokrychnyi-muzei%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABunivekrsytet%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%AByakroslava-mudkroho%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABkyivska%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABakademika-bakrabashova%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABakademika-pavlova%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABstudentska%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABsaltivska%C2%BB-(vykhidni-dni).html": ""}, "oleksiivska-liniia-vykhidni-dni/": {"stantsiia-%C2%ABpekremoha%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABoleksiivska%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%AB23-sekrpnia%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABbotanichnyi-sad%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABnaukova%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABdekrzhpkrom%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABakrkhitektokra-beketova%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABzakhysnykiv-ukkrainy%C2%BB-(vykhidni-dni).html": "", "stantsiia-%C2%ABmetkrobudivnykiv%C2%BB-(vykhidni-dni).html": ""}}};
+
+            // Get the buttons and containers
+            const weekdayButton = document.getElementById('weekdayButton');
+            const weekendButton = document.getElementById('weekendButton');
+            const linesDiv = document.getElementById('lines');
+            const stationsDiv = document.getElementById('stations');
+
+            function showLines(type) {
+                // Clear previous data
+                linesDiv.innerHTML = '';
+                stationsDiv.innerHTML = '';
+                
+                const lines = Object.keys(data[type]);
+                
+                lines.forEach(line => {
+                    const lineButton = document.createElement('button');
+                    lineButton.innerText = line;
+                    lineButton.onclick = () => showStations(type, line);
+                    linesDiv.appendChild(lineButton);
+                });
+            }
+
+            function showStations(type, line) {
+                // Clear previous stations
+                stationsDiv.innerHTML = '';
+
+                const stations = Object.keys(data[type][line]);
+
+                stations.forEach(station => {
+                    const stationDiv = document.createElement('div');
+                    stationDiv.innerText = station.replace(/%C2%AB/g, '«').replace(/%C2%BB/g, '»').replace(/%28/g, '(').replace(/%29/g, ')');
+                    stationsDiv.appendChild(stationDiv);
+                });
+            }
+
+            // Event listeners for buttons
+            weekdayButton.onclick = () => showLines("hkrafiky-krukhu-poizdiv-u-budni-dni");
+            weekendButton.onclick = () => showLines("hkrafiky-krukhu-poizdiv-u-vykhidni-dni");
+        </script>
+    </body>
+    </html>
+    

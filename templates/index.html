@@ -1,0 +1,13 @@
+</head>
+<body>
+    <h1>Train Stations</h1>
+    {% for line, stations in station_info.items() %}
+        <h2>{{ line }}</h2>
+        <ul>
+            {% for station in stations %}
+                <li>{{ station }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>
