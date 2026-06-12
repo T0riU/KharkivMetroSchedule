@@ -1,0 +1,448 @@
+<svg id="map4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 700 700"
+    shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+    project-id="48318b1d54094e719aa966ca6b613d44" export-id="49fed4296f4d4c73a4d8e437fac279bf" cached="false">
+    <line id="map4-u-b1-b2" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(-.542175 0.544584 0.708672 0.705538 645.785578 179.182878)" fill="none" stroke="#547dcd"
+        stroke-width="6" />
+    <line id="map4-u-b2-b3" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(-.533766 0.560118 0.723932 0.689872 604.953081 218.289172)" fill="none" stroke="#547dcd"
+        stroke-width="6" />
+    <line id="map4-u-b3-b4" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(-.54367 0.542493 0.70634 0.707873 565.815467 259.713755)" fill="none" stroke="#547dcd"
+        stroke-width="6" />
+    <line id="map4-u-b4-b5" x1="20" y1="0" x2="93.320234" y2="0" transform="matrix(-.885152 0 0 1 532.645123 310)"
+        fill="none" stroke="#547dcd" stroke-width="6" />
+    <line id="map4-u-b5-b6" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(-1.023716 0 0 1 470.516853 310.396591)" fill="none" stroke="#547dcd" stroke-width="6" />
+    <line id="map4-u-b6-b7" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(-.81235 0.065684 0.080594 0.996747 391.206483 308.865216)" fill="none" stroke="#547dcd"
+        stroke-width="6" />
+    <line id="map4-u-b7-b8" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(1.703822-.480997-.271686-.962386 155.92355 359.619944)" fill="none" stroke="#547dcd"
+        stroke-width="6" />
+    <line id="map4-u-g8-g9" x1="0" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.428639 0.426796-.705582 0.708628 109.999352 110.4172)" fill="none" stroke="#1d9a2c"
+        stroke-width="6" />
+    <line id="map4-u-g7-g8" x1="0" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.428638 0.426795-.705582 0.708628 150 150.245907)" fill="none" stroke="#1d9a2c"
+        stroke-width="6" />
+    <line id="map4-u-g6-g7" x1="0" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.428638 0.426795-.705582 0.708628 190.169668 190.175459)" fill="none" stroke="#1d9a2c"
+        stroke-width="6" />
+    <line id="map4-u-g5-g6" x1="0" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.424464 0.422639-.705582 0.708628 230.17025 230.263835)" fill="none" stroke="#1d9a2c"
+        stroke-width="6" />
+    <line id="map4-u-g4-g5" x1="0" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.432788 0.430927-.705582 0.708628 269.782453 270.563606)" fill="none" stroke="#1d9a2c"
+        stroke-width="6" />
+    <line id="map4-u-g3-g4" x1="0" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.432788 0.430927-.705582 0.708628 310.170289 310.139547)" fill="none" stroke="#1d9a2c"
+        stroke-width="6" />
+    <line id="map4-u-g2-g3" x1="0" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.432788 0.430927-.705582 0.708628 349.728009 349.798786)" fill="none" stroke="#1d9a2c"
+        stroke-width="6" />
+    <line id="map4-u-g1-g2" x1="0" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.373364-.483325 0.791376 0.61133 355.170289 435)" fill="none" stroke="#1d9a2c"
+        stroke-width="6" />
+    <line id="map4-u-r12-r13" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.547958 0.543123 0.703966-.710233 619.040831 619.13753)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r11-r12" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.547958 0.543123 0.703966-.710233 579.645606 578.527321)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r10-r11" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.547958 0.543123 0.703966-.710233 539.469166 538.70538)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r9-r10" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.547958 0.543123 0.703966-.710233 499.292726 498.883439)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r8-r9" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.548988 0.544144 0.703966-.710233 459.020248 458.966307)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r7-r8" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.547962 0.475301-.655246 0.755416 418.994926 425.493978)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r6-r7" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(1.090479 0.069385 0.063499-.997982 328.190422 429.245349)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r5-r6" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(1.353993 0.28141-.203489 0.979077 223.202734 404.3718)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r4-r5" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.702731 0.674285 0.692352-.72156 184.70359 346.457293)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r3-r4" x1="20" y1="0" x2="93.320234" y2="0"
+        transform="matrix(.844119 0.604806-.582426 0.812884 115.171654 299.598184)" fill="none" stroke="#bf3f52"
+        stroke-width="6" />
+    <line id="map4-u-r2-r3" x1="20" y1="0" x2="93.320234" y2="0" transform="matrix(.68194 0 0-1 66.050517 310)"
+        fill="none" stroke="#bf3f52" stroke-width="6" />
+    <line id="map4-u-r1-r2" x1="20" y1="0" x2="93.320234" y2="0" transform="matrix(.68194 0 0-1 16.050517 310)"
+        fill="none" stroke="#bf3f52" stroke-width="6" />
+    <ellipse id="map4-u-b1" rx="10" ry="10" transform="translate(634.942078 190)" fill="#547dcd" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-b2" rx="10" ry="10" transform="translate(594.942078 230)" fill="#547dcd" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-b3" rx="10" ry="10" transform="translate(554.942077 270)" fill="#547dcd" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-b4" rx="10" ry="10" transform="translate(514.942077 310)" fill="#547dcd" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-b5" rx="10" ry="10" transform="translate(450 310.396591)" fill="#547dcd" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-b6" rx="10" ry="10" transform="translate(375 310)" fill="#547dcd" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-b7" rx="10" ry="10" transform="translate(315 315)" fill="#547dcd" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-g1" rx="10" ry="10" transform="translate(355 435)" fill="#1d9a2c" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-g2" rx="10" ry="10" transform="translate(390 390)" fill="#1d9a2c" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-g3" rx="10" ry="10" transform="translate(350 350)" fill="#1d9a2c" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-g4" rx="10" ry="10" transform="translate(310 310)" fill="#1d9a2c" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-g5" rx="10" ry="10" transform="translate(270 270)" fill="#1d9a2c" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-g6" rx="10" ry="10" transform="translate(230 230)" fill="#1d9a2c" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-g7" rx="10" ry="10" transform="translate(190 190)" fill="#1d9a2c" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-g8" rx="10" ry="10" transform="translate(150 150)" fill="#1d9a2c" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-g9" rx="10" ry="10" transform="translate(110 110)" fill="#1d9a2c" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r1" rx="10" ry="10" transform="translate(30 310)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r2" rx="10" ry="10" transform="translate(80 310)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r3" rx="10" ry="10" transform="translate(130 310)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r4" rx="10" ry="10" transform="translate(195 355)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r5" rx="10" ry="10" transform="translate(250 410)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r6" rx="10" ry="10" transform="translate(350 430)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r7" rx="10" ry="10" transform="translate(430 435)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r8" rx="10" ry="10" transform="translate(470 470)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r9" rx="10" ry="10" transform="translate(510 510)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r10_" rx="10" ry="10" transform="translate(550 550)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r11_" rx="10" ry="10" transform="translate(590 590)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r12_" rx="10" ry="10" transform="translate(630 630)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-r13_" rx="10" ry="10" transform="translate(670 670)" fill="#bf3f52" stroke="#fff"
+        stroke-width="2" />
+    <ellipse id="map4-u-b8" rx="10" ry="10" transform="translate(190 350)" fill="#547dcd" stroke="#fff"
+        stroke-width="2" /><text id="map4-u-tg9" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12"
+        font-weight="400" letter-spacing="0.5" transform="translate(110 95.564915)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan1" y="0" font-family="&quot;map4:::Oswald&quot;" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Перемога
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan2" y="0" font-family="&quot;map4:::Concert One&quot;" font-weight="400"
+            stroke-width="0.5">
+            <![CDATA[
+ 
+]]>
+        </tspan>
+    </text><text id="map4-u-tg8" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(150 135.358435)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan3" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Олексіївська 
+]]>
+        </tspan>
+    </text><text id="map4-u-tg7" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(190 175.564915)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan4" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+23 Серпня 
+]]>
+        </tspan>
+    </text><text id="map4-u-tg6" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(231.604014 217.291492)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan5" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+ Ботанічний сад
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan6" x="0" y="24" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+ 
+]]>
+        </tspan>
+    </text><text id="map4-u-tg5" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(269.781331 255.564915)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan7" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Наукова 
+]]>
+        </tspan>
+    </text><text id="map4-u-tg4" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(310.170289 295.564915)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan8" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Держпром 
+]]>
+        </tspan>
+    </text><text id="map4-u-tg3" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(365.000002 355.815396)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan9" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Архітектора Бекетова 
+]]>
+        </tspan>
+    </text><text id="map4-u-tg2" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(407.970364 395.564922)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan10" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Захисників України 
+]]>
+        </tspan>
+    </text><text id="map4-u-tg1" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(340 464.218702)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan11" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Метро-
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan12" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+будівників 
+]]>
+        </tspan>
+    </text><text id="map4-u-tr1" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(19.124876 283.870187)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan13" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Холодна
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan14" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+гора
+]]>
+        </tspan>
+    </text><text id="map4-u-tr2" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(54.689317 334.275349)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan15" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Вокзальна
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan16" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+ 
+]]>
+        </tspan>
+    </text><text id="map4-u-tr3" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(134.834404 283.870187)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan17" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Центральний
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan18" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+ринок
+]]>
+        </tspan>
+    </text><text id="map4-u-tr4" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(148.150291 374.10853)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan19" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Майдан
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan20" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Конституції 
+]]>
+        </tspan>
+    </text><text id="map4-u-tr5" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(232.08099 434.165538)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan21" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Левада 
+]]>
+        </tspan>
+    </text><text id="map4-u-tr6" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(310.170289 414.412611)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan22" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Спортивна 
+]]>
+        </tspan>
+    </text><text id="map4-u-tr7" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(444.388688 429.745121)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan23" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Заводська 
+]]>
+        </tspan>
+    </text><text id="map4-u-tr8" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(485.521353 466.837199)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan24" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Турбоатом 
+]]>
+        </tspan>
+    </text><text id="map4-u-tr9" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(522.709153 506.394761)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan25" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+ Палац Спорту
+]]>
+        </tspan>
+    </text><text id="map4-u-tr10_" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12"
+        font-weight="400" letter-spacing="0.5" transform="translate(560.565428 543.806165)" fill="#fffbfb"
+        stroke-width="0.5">
+        <tspan id="map4-s-tspan26" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+ Армійська
+]]>
+        </tspan>
+    </text><text id="map4-u-tr11_" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12"
+        font-weight="400" letter-spacing="0.5" transform="translate(530.340115 599.399068)" fill="#fffbfb"
+        stroke-width="0.5">
+        <tspan id="map4-s-tspan27" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Ім. О. С.
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan28" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Масельського 
+]]>
+        </tspan>
+    </text><text id="map4-u-tr12_" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12"
+        font-weight="400" letter-spacing="0.5" transform="translate(634.942078 603.539076)" fill="#fffbfb"
+        stroke-width="0.5">
+        <tspan id="map4-s-tspan29" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Тракторний
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan30" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+завод 
+]]>
+        </tspan>
+    </text><text id="map4-u-tr13_" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12"
+        font-weight="400" letter-spacing="0.5" transform="translate(585.351124 676.648852)" fill="#fffbfb"
+        stroke-width="0.5">
+        <tspan id="map4-s-tspan31" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Індустріальна 
+]]>
+        </tspan>
+    </text><text id="map4-u-tb8" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(182.885205 319.724314)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan32" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Історичний
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan33" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+музей
+]]>
+        </tspan>
+    </text><text id="map4-u-tb7" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(266.672989 345.46162)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan34" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Університет 
+]]>
+        </tspan>
+    </text><text id="map4-u-tb6" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(373.477135 284.151513)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan35" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Ярослава
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan36" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Мудрого 
+]]>
+        </tspan>
+    </text><text id="map4-u-tb5" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(440 294.446864)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan37" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Київська 
+]]>
+        </tspan>
+    </text><text id="map4-u-tb4" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(515.0801 334.446864)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan38" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Академіка
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan39" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Барабашова
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan40" x="0" y="24" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+ 
+]]>
+        </tspan>
+    </text><text id="map4-u-tb3" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(564.942077 289.476375)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan41" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Академіка
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan42" x="0" y="12" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Павлова
+]]>
+        </tspan>
+        <tspan id="map4-s-tspan43" x="0" y="24" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+ 
+]]>
+        </tspan>
+    </text><text id="map4-u-tb2" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(604.942078 244.710699)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan44" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Студентська 
+]]>
+        </tspan>
+    </text><text id="map4-u-tb1" dx="0" dy="0" font-family="&quot;map4:::Oswald&quot;" font-size="12" font-weight="400"
+        letter-spacing="0.5" transform="translate(610.692995 174.446864)" fill="#fffbfb" stroke-width="0.5">
+        <tspan id="map4-s-tspan45" y="0" font-weight="400" stroke-width="0.5">
+            <![CDATA[
+Салтівська
+]]>
+        </tspan>
+    </text>
+    <style>
+        <![CDATA[
+        @font-face {
+            font-family: 'map4:::Concert One';
+            font-style: normal;
+            font-weight: 400;
+            src: url(data:font/ttf;charset=utf-8;base64,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) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'map4:::Oswald';
+            font-style: normal;
+            font-weight: 400;
+            src: url(data:font/ttf;charset=utf-8;base64,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) format('truetype');
+        }
+        ]]>
+    </style>
+</svg>

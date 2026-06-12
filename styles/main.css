@@ -1,0 +1,592 @@
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background:
+    radial-gradient(circle at top right,
+      rgba(91,140,255,.12),
+      transparent 35%),
+    #0b0f17;
+  color: #e8e8f0;
+ font-family: 'Inter', sans-serif;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Header ─────────────────────────────── */
+.station-name,
+.route-time-big,
+.route-time,
+.next-train,
+#clock {
+  font-family: 'Manrope', sans-serif;
+}
+#header {
+  background: rgba(19,26,38,.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+#clock-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+    background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 6px 14px;
+  transition: background 0.4s;
+}
+/* будні — синюватий */
+#clock-wrap.weekday {
+  background: #1a2040;
+  box-shadow: 0 0 0 1px #2d3a6a;
+}
+/* вихідні — зеленуватий */
+#clock-wrap.weekend {
+  background: #0f2318;
+  box-shadow: 0 0 0 1px #1a4a28;
+}
+#clock {
+   font-size: 22px;
+  letter-spacing: .03em;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #e8e8f0;
+}
+#settings-btn {
+  background: none;
+  border: 1px solid #2d3050;
+  color: #7a82a8;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+#settings-btn:hover { background: #2d3050; color: #e8e8f0; }
+
+/* ── Map container ───────────────────────── */
+#map-wrap {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+#map-wrap.panning { cursor: grabbing; }
+#map-wrap svg {
+  position: absolute;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+/* By default, disable pointer events on ALL svg children —
+   this prevents decorative elements from eating clicks */
+#map-wrap svg * {
+  pointer-events: none;
+}
+
+/* Re-enable only on station elements and their parents */
+#map-wrap svg [data-station] {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+/* clickable station circles */
+#map-wrap svg ellipse[data-station] {
+  cursor: pointer;
+  transition: opacity 0.12s;
+}
+#map-wrap svg ellipse[data-station]:hover {
+  opacity: 0.75;
+}
+#map-wrap svg ellipse.selected {
+  stroke: #fff !important;
+  stroke-width: 3 !important;
+  opacity: 1;
+}
+#map-wrap svg text[data-station]:hover {
+  opacity: 0.8;
+}
+
+/* ── Bottom panel ─────────────────────────── */
+/*
+  The panel has three logical states:
+    - hidden     : nothing selected, panel fully off-screen
+    - collapsed  : a station is selected but the panel is "swiped down" —
+                    only the drag handle strip remains visible
+    - open       : full panel content visible
+
+  Sizing is driven by CSS variables so JS can animate drag in real time:
+    --panel-open-h   : height of the panel when fully open (content height, capped)
+    --panel-collapsed-h : height of the visible strip when collapsed (handle only)
+    --panel-drag     : live drag offset in px, applied during touch/mouse drag
+
+  translateY(0) = fully open, translateY(open-h - collapsed-h) = collapsed.
+*/
+.panel-drag-area {
+  padding: 18px 0 18px;
+}
+#bottom-panel {
+  --panel-collapsed-h: 56px;
+  --panel-open-h: min(75dvh, 620px);
+  --panel-drag: 0px;
+
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  flex-shrink: 0;
+  height: auto;
+  max-height: var(--panel-open-h);
+ background: rgba(19,26,38,.96);
+  backdrop-filter: blur(20px);
+
+  border-top: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 24px 24px 0 0;
+
+  box-shadow:
+    0 -10px 40px rgba(0,0,0,.45);
+  transform: translateY(calc(100% + var(--panel-drag)));
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.35, 1);
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+
+#bottom-panel.open {
+  transform: translateY(var(--panel-drag));
+}
+
+#bottom-panel.collapsed {
+  transform: translateY(calc(100% - var(--panel-collapsed-h) + var(--panel-drag)));
+}
+/* Dragging in progress: kill the transition so movement tracks the finger 1:1 */
+#bottom-panel.dragging {
+  transition: none;
+}
+
+.panel-drag-handle {
+  width: 40px;
+  height: 4px;
+  background: #2d3050;
+  border-radius: 2px;
+  margin: 8px auto 0;
+  flex-shrink: 0;
+  touch-action: none;
+}
+/* Make the whole top strip an easy drag target, not just the 4px bar */
+.panel-drag-area {
+  flex-shrink: 0;
+  padding: 6px 0 10px;
+  cursor: grab;
+  touch-action: none;
+}
+#bottom-panel.dragging .panel-drag-area,
+#bottom-panel.dragging .panel-drag-handle {
+  cursor: grabbing;
+}
+
+.panel-inner {
+  padding: 0 16px 16px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Station header */
+.station-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.line-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.line-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca8c7;
+  margin-bottom: 12px;
+}
+
+/* Train times */
+.times-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.direction-card {
+  background: #1c1f30;
+  border-radius: 10px;
+  padding: 10px 12px;
+  border-left: 3px solid transparent;
+  backdrop-filter: blur(12px);
+
+  transition: all .2s ease;
+}
+.direction-card:hover {
+  transform: translateY(-2px);
+}
+
+.direction-card .dir-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #9ca8c7;
+  margin-bottom: 6px;
+}
+.dir-terminal {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.next-train {
+  font-size: 22px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.next-train span.unit { font-size: 13px; font-weight: 400; color: #9ca8c7; }
+.next-train-time {
+  font-size: 12px;
+  color: #9ca8c7;
+  margin-top: 2px;
+}
+.no-trains { color: #9ca8c7; font-size: 13px; }
+
+/* Route button */
+#route-section { margin-top: 4px; }
+#route-section h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca8c7;
+  margin-bottom: 8px;
+}
+#route-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #2a2e48;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: #c0c8f0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#route-btn:hover { background: #353a60; }
+#route-btn.active {
+  background: #3a2e10;
+  color: #f0d8a0;
+}
+#route-btn.active:hover { background: #4a3a14; }
+
+#route-result {
+  margin-top: 10px;
+  padding: 14px 12px;
+  background: #1c1f30;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #c0c8f0;
+  display: none;
+  /* убрать ограничение ширины */
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+#route-result.show { display: block; }
+#route-result .route-time {
+  font-size: 24px;
+  font-weight: 800;
+  color: #e8e8f0;
+  margin-bottom: 4px;
+}
+#route-result .route-path {
+  color: #9ca8c7;
+  font-size: 12px;
+}
+.route-no {
+  text-align: center;
+  color: #9ca8c7;
+  padding: 8px 0;
+}
+#route-btn,
+#settings-close,
+#settings-btn {
+  border: 1px solid rgba(255,255,255,.08);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(91,140,255,.18),
+      rgba(91,140,255,.10)
+    );
+
+  color: #fff;
+
+  border-radius: 12px;
+
+  font-weight: 600;
+
+  transition: .2s ease;
+}
+
+#route-btn:hover,
+#settings-close:hover,
+#settings-btn:hover {
+  transform: translateY(-1px);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(91,140,255,.25),
+      rgba(91,140,255,.15)
+    );
+}
+.next-train,
+.route-time,
+.route-time-big {
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+/* ── Settings overlay ─────────────────────── */
+#settings-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+#settings-overlay.open { display: flex; }
+#settings-box {
+  background: #151720;
+  border: 1px solid #22253a;
+  border-radius: 16px;
+  padding: 24px;
+  width: min(400px, 92vw);
+  max-height: 80dvh;
+  overflow-y: auto;
+}
+#settings-box h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+#settings-btn {
+  font-size: 24px;
+}
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #a0a8c8;
+}
+.setting-row label { color: #c0c8f0; font-size: 13px; }
+.setting-row input[type=number] {
+  width: 64px;
+  background: #1c1f30;
+  border: 1px solid #2d3050;
+  border-radius: 6px;
+  color: #e8e8f0;
+  padding: 4px 8px;
+  font-size: 13px;
+}
+.setting-section {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4a5280;
+}
+#settings-close {
+  margin-top: 16px;
+  width: 100%;
+  background: #2a2e48;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  color: #e8e8f0;
+  font-size: 14px;
+  cursor: pointer;
+}
+#settings-close:hover { background: #353a60; }
+
+/* Day type badge */
+#day-badge {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca8c7;
+}
+#clock-wrap.weekend #day-badge { color: #4a9a60; }
+#clock-wrap.weekday #day-badge { color: #5a80c8; }
+
+/* ── Panel close ──────────────────────────── */
+.panel-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+#panel-close-btn {
+  background: none;
+  border: 1px solid #2d3050;
+  border-radius: 8px;
+  color: #7a82a8;
+  padding: 4px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  line-height: 1;
+  touch-action: manipulation;
+}
+#panel-close-btn:active { background: #2d3050; }
+
+/* ── Route result — detailed ─────────────── */
+.route-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.route-time-big {
+  font-size: 28px;
+  font-weight: 800;
+  color: #e8e8f0;
+}
+.route-stops {
+  font-size: 13px;
+  color: #9ca8c7;
+}
+.route-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.route-step {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+  text-align: left;
+}
+.route-step-line {
+  width: 4px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  min-height: 48px;
+}
+.route-step-body {
+  flex: 1;
+}
+.route-step-from {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e8e8f0;
+}
+.route-step-meta {
+  font-size: 11px;
+  color: #9ca8c7;
+  margin: 2px 0;
+}
+.route-step-to {
+  font-size: 12px;
+  color: #a0a8c8;
+}
+.route-transfer-badge {
+  font-size: 12px;
+  color: #c0a840;
+  background: #2a2410;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin: 2px 0;
+  text-align: left;
+}
+.route-trains {
+  border-top: 1px solid #22253a;
+  padding-top: 8px;
+  text-align: left;
+}
+.route-trains-label {
+  font-size: 11px;
+  color: #9ca8c7;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.route-train-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.route-train-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 13px;
+  padding: 0;
+}
+.route-train-dep {
+  font-weight: 600;
+  color: #e8e8f0;
+}
+.route-train-arr {
+  color: #9ca8c7;
+  font-size: 12px;
+}
+
+/* ── Mobile touch targets ────────────────── */
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 36px;
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 480px) {
+  #header h1 { font-size: 11px; }
+  #clock { font-size: 16px; }
+  #settings-btn { padding: 5px 8px; font-size: 12px; }
+
+  .times-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .next-train { font-size: 18px; }
+
+  .route-time-big { font-size: 22px; }
+
+  #route-result { font-size: 12px; }
+}
+
+#panel-close-btn {
+  opacity: 1;
+  transition: opacity .2s ease;
+}
+
+#bottom-panel.collapsed #panel-close-btn {
+  opacity: 0;
+  pointer-events: none;
+}

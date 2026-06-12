@@ -2,20 +2,24 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import csv
-
-BASE_URL = "https://www.metro.kharkiv.ua/"  # Замініть на базовий URL сайту
+import os
+OUTPUT_DIR = "data"
+BASE_URL = "https://www.metro.kharkiv.ua"
 
 def get_links_from_div(url, div_class):
-    """Витягує всі посилання з div за заданим класом."""
+    print(f"[LINKS] Fetching: {url}")
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
     div = soup.find("div", class_=div_class)
     if div:
-        return [BASE_URL + a['href'] for a in div.find_all('a', href=True)]
+        links = [requests.compat.urljoin(BASE_URL, a['href']) for a in div.find_all('a', href=True)]
+        print(f"[LINKS] Found {len(links)} links")
+        return links
+    print("[LINKS] No links found")
     return []
 
 def get_tables_from_page(url):
-    """Витягує всі таблиці з вказаної сторінки та формує часи у форматі HH:MM."""
+    print(f"[TABLE] Parsing: {url}")
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
     
@@ -27,68 +31,72 @@ def get_tables_from_page(url):
             rows.append(cells)
         tables.append(rows)
     
-    times = extract_times(tables)
-    return times
+    result = extract_times(tables)
+    print(f"[TABLE] Extracted {len(result)} tables")
+    return result
+
 def extract_times(data):
-    """Transforms input data into the desired format without empty cells."""
     transformed_data = []
     
     for table in data:
-        merged_table = []  # This will store merged times for the current table
+        merged_table = []
         for row in table:
-            cleaned_minutes = [minute.replace('*', '') for minute in row[1:] if minute]
-            merged_table.extend([f"{row[0]}{minute.zfill(2)}" for minute in cleaned_minutes])
+            if not row:
+                continue
+            if len(row) < 2:
+                continue
+            base = row[0]
+            cleaned_minutes = [m.replace('*', '') for m in row[1:] if m]
+            merged_table.extend([f"{base}{m.zfill(2)}" for m in cleaned_minutes])
         transformed_data.append(merged_table)
     
     return transformed_data
 
 def remove_base_url(data):
-    """Рекурсивно видаляє базовий URL зі структури даних."""
     if isinstance(data, dict):
-        return {
-            key.replace(BASE_URL, ''): remove_base_url(value)
-            for key, value in data.items()
-        }
+        return {key.replace(BASE_URL, ''): remove_base_url(value) for key, value in data.items()}
     elif isinstance(data, list):
         return [remove_base_url(item) for item in data]
-    else:
-        return data
+    return data
+
 def save_to_json(data, filename="scraped_data.json"):
-    """Зберігає дані у файл JSON."""
     try:
-        # Видалити базовий URL перед збереженням
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        path = os.path.join(OUTPUT_DIR, filename)
+
         data_without_base = remove_base_url(data)
-        with open(filename, "w", encoding="utf-8") as file:
+        with open(path, "w", encoding="utf-8") as file:
             json.dump(data_without_base, file, ensure_ascii=False, indent=4)
-        print(f"Дані успішно збережено у файл {filename}")
     except Exception as e:
-        print(f"Помилка при збереженні даних у файл: {e}")
+        print(f"Error: {e}")
 
 def scrape_site(start_url):
-    """Основна функція для скрапінгу."""
+    print("[START] Scraping started")
     level_1_links = get_links_from_div(start_url, "content-text content-text-border mob-img")
     all_data = {}
 
-    for link_1 in level_1_links:
+    for i, link_1 in enumerate(level_1_links, 1):
+        print(f"[LEVEL 1] {i}/{len(level_1_links)} -> {link_1}")
+
         level_2_links = get_links_from_div(link_1, "content-text content-text-border mob-img")
         all_data[link_1] = {}
 
-        for link_2 in level_2_links:
+        for j, link_2 in enumerate(level_2_links, 1):
+            print(f"  [LEVEL 2] {j}/{len(level_2_links)} -> {link_2}")
+
             level_3_links = get_links_from_div(link_2, "content-text content-text-border mob-img")
             all_data[link_1][link_2] = {}
-            
-            # all_data[link_1][link_2][0] = get_tables_from_page(level_3_links[0])
-            for link_3 in level_3_links:
-                # level_4_tables = get_tables_from_page(link_3)
-                # all_data[link_1][link_2][link_3] = level_4_tables
-                all_data[link_1][link_2][link_3] = ''
 
-    save_to_json(all_data)
+            for k, link_3 in enumerate(level_3_links, 1):
+                print(f"    [LEVEL 3] {k}/{len(level_3_links)} -> {link_3}")
+
+                all_data[link_1][link_2][link_3] = get_tables_from_page(link_3)
+
+    print("[DONE] Scraping finished")
+    save_to_json(all_data, "scraped_data.json")
     return all_data
 
-# Виклик функції та запис результату
 start_url = BASE_URL + "/hkrafiky-krukhu-poizdiv/"
 print(start_url)
 data = scrape_site(start_url)
 print(data)
-
