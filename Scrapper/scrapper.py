@@ -6,6 +6,17 @@ import os
 OUTPUT_DIR = "data"
 BASE_URL = "https://www.metro.kharkiv.ua"
 
+def load_old_data(filename="scraped_data.json"):
+    path = os.path.join(OUTPUT_DIR, filename)
+    if not os.path.exists(path):
+        return None
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+    
+def is_data_changed(new_data, old_data):
+    return new_data != old_data
+
 def get_links_from_div(url, div_class):
     print(f"[LINKS] Fetching: {url}")
     response = requests.get(url)
@@ -65,10 +76,17 @@ def save_to_json(data, filename="scraped_data.json"):
         path = os.path.join(OUTPUT_DIR, filename)
 
         data_without_base = remove_base_url(data)
+        old_data = load_old_data(filename)
+        if old_data is not None and not is_data_changed(data_without_base, old_data):
+            print("[SKIP] Data unchanged, not updating file")
+            return False
         with open(path, "w", encoding="utf-8") as file:
             json.dump(data_without_base, file, ensure_ascii=False, indent=4)
+        print("[SAVE] Data updated")
+        return True
     except Exception as e:
         print(f"Error: {e}")
+        return False
 
 def scrape_site(start_url):
     print("[START] Scraping started")
@@ -93,8 +111,8 @@ def scrape_site(start_url):
                 all_data[link_1][link_2][link_3] = get_tables_from_page(link_3)
 
     print("[DONE] Scraping finished")
-    save_to_json(all_data, "scraped_data.json")
-    return all_data
+    changed = save_to_json(all_data, "scraped_data.json")
+    return all_data, changed
 
 start_url = BASE_URL + "/hkrafiky-krukhu-poizdiv/"
 print(start_url)
